@@ -1,0 +1,43 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "node",
+      "args": ["mcp-server-fs.js"],
+      "env": {
+        "ROOT_DIR": "/path/to/project"
+      }
+    },
+    "database": {
+      "command": "node",
+      "args": ["mcp-server-db.js"],
+      "env": {
+        "DATABASE_URL": "postgresql://user:password@localhost:5432/mydb"
+      }
+    },
+    "git": {
+      "command": "node",
+      "args": ["mcp-server-git.js"],
+      "env": {
+        "REPO_PATH": "/path/to/repo"
+      }
+    },
+    "api": {
+      "command": "node",
+      "args": ["mcp-server-api.js"],
+      "env": {
+        "API_BASE_URL": "https://api.example.com"
+      }
+    },
+    "browser": {
+      "command": "node",
+      "args": ["mcp-server-browser.js"]
+    },
+    "docker": {
+      "command": "docker",
+      "args": ["run", "--rm", "-i", "mcp-server-docker"],
+      "env": {
+        "DOCKER_HOST": "unix:///var/run/docker.sock"
+      }
+    }
+  }
+}

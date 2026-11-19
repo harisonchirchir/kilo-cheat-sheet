@@ -1,0 +1,113 @@
+{
+  // Project Information
+  "project": "my-application",
+  "version": "1.0.0",
+  
+  // AI Provider Settings
+  "aiProvider": "openai", // or "anthropic", "google", "azure"
+  "model": "gpt-4", // Model to use for AI operations
+  "temperature": 0.7, // Sampling temperature (0-2)
+  "maxTokens": 2000, // Maximum tokens in response
+  "topP": 1.0, // Nucleus sampling parameter
+  "frequencyPenalty": 0.0, // Frequency penalty
+  "presencePenalty": 0.0, // Presence penalty
+  
+  // Context Settings
+  "contextWindow": 8000, // Context window size
+  "maxContextFiles": 20, // Maximum files to include in context
+  "includeHistory": true, // Include conversation history
+  "historyLimit": 10, // Number of messages to include
+  
+  // Agent Settings
+  "defaultAgent": "code", // Default agent to use
+  "autoSwitch": false, // Auto-switch agents based on task
+  
+  // Behavior Settings
+  "autoSave": true, // Auto-save sessions
+  "confirmActions": true, // Confirm before destructive actions
+  "streaming": true, // Stream responses in real-time
+  "verbose": false, // Show detailed output
+  
+  // Security Settings
+  "allowFileAccess": true, // Allow file system access
+  "allowNetworkAccess": false, // Allow network requests
+  "allowedDomains": [], // Domains allowed for network access
+  "sandboxMode": false, // Run in sandboxed environment
+  
+  // Permissions
+  "permissions": {
+    "filesystem": {
+      "read": true,
+      "write": true,
+      "allowedPaths": ["./src", "./tests", "./docs"]
+    },
+    "network": {
+      "enabled": false,
+      "allowedDomains": []
+    },
+    "commands": {
+      "enabled": true,
+      "allowedCommands": ["npm", "node", "git", "yarn"]
+    }
+  },
+  
+  // MCP Servers
+  "mcpServers": {
+    "filesystem": {
+      "command": "node",
+      "args": ["mcp-server-fs.js"],
+      "env": {
+        "ROOT_DIR": "/path/to/project"
+      }
+    },
+    "git": {
+      "command": "node",
+      "args": ["mcp-server-git.js"],
+      "env": {
+        "REPO_PATH": "/path/to/repo"
+      }
+    }
+  },
+  
+  // Custom Agents
+  "agents": {
+    "backend-specialist": {
+      "description": "Backend development expert",
+      "systemPrompt": "You are a backend development expert...",
+      "capabilities": ["api-design", "database", "performance"],
+      "model": "gpt-4",
+      "temperature": 0.3
+    }
+  },
+  
+  // Rules and Instructions
+  "rules": [
+    "Use TypeScript for all new files",
+    "Follow the existing code style",
+    "Write tests for all new features"
+  ],
+  "instructions": {
+    "codeStyle": "Use 2 spaces for indentation",
+    "namingConvention": "camelCase for variables",
+    "commentStyle": "Use JSDoc for functions"
+  },
+  
+  // Workflows
+  "workflows": {
+    "test-all": {
+      "description": "Run all tests",
+      "triggers": ["test", "ci"],
+      "steps": [
+        { "action": "runUnitTests" },
+        { "action": "runIntegrationTests" },
+        { "action": "checkCoverage" }
+      ]
+    }
+  },
+  
+  // Environment Variables (set via .env file)
+  "env": {
+    "OPENAI_API_KEY": "your_api_key_here",
+    "ANTHROPIC_API_KEY": "your_anthropic_key_here"
+  }
+}
