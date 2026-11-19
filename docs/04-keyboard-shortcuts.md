@@ -1,5 +1,17 @@
 # Keyboard Shortcuts
 
+Keyboard shortcuts make it easier to interact with Kilo Code without constantly switching between menus and panels.
+
+They can help you:
+
+1. Open the Kilo Code interface.
+2. Switch between agents.
+3. Navigate sessions.
+4. Interact with code suggestions.
+5. Access editor actions.
+6. Manage terminal operations.
+7. Review and control development tasks.
+
 ## Global Shortcuts
 
 | Shortcut | Action |
